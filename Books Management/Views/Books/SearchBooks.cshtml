@@ -1,0 +1,32 @@
+﻿
+
+@{
+    ViewData["Title"] = "Search Books";
+}
+
+<h1>Search Books</h1>
+
+<p>Choose a search type  : </p>
+<style>
+    .action-btn {
+        display: inline-block;
+        margin-right: 10px; /* Espace entre les boutons */
+        background-color: #AAD7D9;
+        color: #116A7B
+
+    }
+
+    h1{
+        color: #116A7B;
+         font-size:32px;
+    }
+</style>
+
+<div>
+    <a class="btn btn-primary action-btn" asp-action="searchByTitle">Search by Title</a>
+    <a class="btn btn-primary action-btn" asp-action="searchByGenre">Search by Genre</a>
+    <a class="btn btn-primary action-btn" asp-action="searchByCritere">Search by a chosen critere</a>
+    <a class="btn btn-primary action-btn" asp-action="filtrerPar2">Filter By Genre And Title</a>
+</div>
+
+

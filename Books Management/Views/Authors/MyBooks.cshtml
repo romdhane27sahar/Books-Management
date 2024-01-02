@@ -1,0 +1,38 @@
+﻿@model List<Books_Management.Models.Book>
+
+@{
+    ViewData["Title"] = "My Books";
+}
+
+<h1>@ViewBag.AuthorName</h1>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Genre</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Description</td>
+                    <td>@book.Genre</td>
+                    <td>@book.Author.FullName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No books found for this author.</p>
+}
+
+<a asp-action="Index">Back to Authors List</a>

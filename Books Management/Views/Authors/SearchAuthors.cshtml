@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Search Authors";
+}
+
+
+
+
+<h1>Search Authors</h1>
+
+<p>Choose a search type  : </p>
+
+
+
+<style>
+    .action-btn {
+        display: inline-block;
+        margin-right: 10px; /* Espace entre les boutons */
+        background-color: #AAD7D9;
+        color: #116A7B
+    }
+
+    h1{
+        color: #116A7B;
+        font-size:32px;
+    }
+</style>
+
+<div>
+    <a class="btn btn-primary action-btn" asp-action="searchByFullName">Search by FullName</a>
+    <a class ="btn btn-primary action-btn" asp-action="searchByNationality">Search by Nationality</a>
+    <a class="btn btn-primary action-btn" asp-action="searchByCritere">Search by a chosen critere</a>
+    <a class="btn btn-primary action-btn"  asp-action="filtrerPar2">Filtrer</a>
+</div>

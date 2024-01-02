@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Books_Management.Models.Author>
+
+@{
+    ViewData["Title"] = "filtrerPar2";
+}
+
+<h1>filtrer Par 2 Critères</h1>
+
+
+<div>
+    <form action="filtrerPar2" method="post">
+        <!--post car on va envoyer des donnees au controller -->
+        <label>Nationality :</label>
+        <select name="nationality">
+            <!--afficher l'option "All"-->
+            <option value="All">All</option>
+            <!--afficher le reste des options (c'est la liste de genres qu'on a recuperé au nivea_u du controller -->
+            @foreach (var item in ViewBag.GL)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <label>FirstName : </label>
+        <input name="firstName" />
+       
+
+        <label>LastName : </label>
+        <input name="lastName" />
+        <input type="submit" value="Find" />
+
+
+
+    </form>
+</div>
+
+<style>
+    .link-container {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<div class="link-container">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    <p>
+        <a asp-action="searchAuthors">Back To Search Books</a>
+    </p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdA">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdA">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdA">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
